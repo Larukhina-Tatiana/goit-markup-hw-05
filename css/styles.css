@@ -19,6 +19,8 @@
   --hero-button-active: #188ce8;
   --clients: #afb1b8;
   --bg-img: #c4c4c4;
+
+  --white: #ffffff;
 }
 
 /* Подключается через modern-normalize.min.css */
@@ -114,6 +116,9 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--title-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Отступы в новигации */
@@ -141,6 +146,10 @@ margin-right: 50px;
 .nav-contacts,
 .nav-contacks-icon {
   color: var(--priority-text-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* {
@@ -156,6 +165,38 @@ margin-right: 50px;
   margin-left: auto;
 }
 
+/* Подчёркивание ссылок с низу через ::after */
+
+.position-relative {
+  display: inline-block;
+  position: relative;
+
+
+}
+
+.link-hover::after {
+  display: block;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  bottom: 0;
+  /* opacity: 0; */
+
+}
+
+.active {
+  opacity: 1;
+  
+  }
+/* .active.link-hover:hover::after,
+.link-hover:focus::after {
+  opacity: 1;
+  
+  } */
+
 .contact-icon {
   display: flex;
   align-items: center;
@@ -165,7 +206,6 @@ margin-right: 50px;
 /* Секция Герой */
 .hero {
   max-width: 1600px;
-  height: 600px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -212,6 +252,10 @@ margin-right: 50px;
   border: 0;
   box-shadow: var(--hero-box-shadow);
   cursor: pointer;
+
+  transition-property: background;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-button:active {
@@ -248,7 +292,7 @@ margin-right: 50px;
 }
 
 /* Особливості  сброс нижнего паддинга*/
-.no-padding {
+.no-padding-bottom {
   padding-bottom: 0;
 }
 
@@ -320,6 +364,33 @@ margin-right: 50px;
 .clients-list {
   justify-content: space-between;
 }
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-content {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  left: 0;
+  bottom: 0;
+
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  /* text-align: center; */
+  text-transform: uppercase;
+
+  color: var(--white);
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
 /* Секция Наша команда */
 .team {
   background-color: var(--team-background);
@@ -355,6 +426,7 @@ margin-right: 50px;
 
 .team-card-social-link {
   justify-content: center;
+  gap: 10px;
 }
 /* Объединение для выравнивания */
 .content {
@@ -375,12 +447,21 @@ margin-right: 50px;
 
 .team-link {
   border: 1px solid var(--page-background);
+
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link {
   background-color: rgba(255, 255, 255, 0.1);
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.footer-social-link:hover {
+.footer-social-link:hover,
+.footer-social-link:focus {
   background-color: var(--accent-color);
 }
 .team-link:hover,
@@ -390,6 +471,10 @@ margin-right: 50px;
 
 .social-link {
   fill: var(--clients);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:hover,
 .social-link:focus {
@@ -411,6 +496,10 @@ margin-right: 50px;
   height: 92px;
   border: 1px solid var(--clients);
   border-radius: 4px;
+
+  transition-property: border;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-card:hover,
@@ -420,12 +509,16 @@ margin-right: 50px;
 
 /* Секция Наша команда svg без ховера */
 .contact-icon,
-.card-accent-icon,
 .card-accent-icon {
   fill: var(--clients);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-accent:hover,
+.card-accent:focus,
 .card-accent-icon:hover,
 .card-accent-icon:focus {
   fill: var(--accent-color);
@@ -458,6 +551,10 @@ margin-right: 50px;
 
 .footer-contacts {
   color: var(--address-color);
+
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Приєднуйтесь */
@@ -474,9 +571,14 @@ margin-right: 50px;
 
 .svg-social-link {
   fill: var(--logo-footer);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.team-link:hover .team-link:focus {
+.team-link:hover,
+.team-link:focus {
   fill: var(--logo-footer);
 }
 /* Страница Портфолио */
@@ -501,6 +603,10 @@ margin-right: 50px;
   line-height: 1.6;
   text-align: center;
   cursor: pointer;
+
+  transition-property: color, background;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .buttons .item:not(:first-child) {
@@ -516,6 +622,45 @@ portfolio-button:focus {
   box-shadow: var(--portfolio-box-shadow);
 }
 
+/*  Синий оверлей*/
+
+.project-description-container {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-description-text {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  top: 0;
+  transition-duration: 250ms;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(calc(100% + 1px));
+  /* transform: translateY(100%); */
+
+  
+  font-size: 18px;
+  line-height: calc(28 / 18);
+  padding: 63px 24px;
+
+  color: var(--white);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+
+.project:hover .project-description-text,
+.project:focus .project-description-text {
+  transform: translateY(0);
+}
+
+
 /* .portfolio-button.active {
 
     padding: 6px 25px;
@@ -527,6 +672,13 @@ portfolio-button:focus {
 .flex-container {
   flex-wrap: wrap;
   /* margin: -15px; */
+}
+
+.project-link {
+  display: block;
+  text-decoration: none;
+  list-style: none;
+  color: var(--priority-text-color);
 }
 
 .project-caption {
@@ -544,10 +696,11 @@ portfolio-button:focus {
   margin-bottom: 4px;
 }
 
-.projects-text {
+.projects-text,
+.project-link:visited,
+.project-link {
   font-size: 16px;
   line-height: 1.87;
-  padding-top: 10px;
 }
 
 .project {
@@ -555,15 +708,18 @@ portfolio-button:focus {
   margin-right: 30px;
   margin-bottom: 30px;
   background: var(--page-background);
-  /* border: 1px solid var(--project-border); */
+  transition-duration: 250ms;
+  transition-property: border, box-shadow, background;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  
 }
 
 .project:hover,
 .project:focus {
   border: 1px solid #eeeeee;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
-              0px 4px 4px rgba(0, 0, 0, 0.06),
-              1px 4px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 /* Каждый третий */
@@ -587,7 +743,7 @@ portfolio-button:focus {
   gap: 70px;
 }
 
-.footer-social-list  {
+.footer-social-list {
   gap: 10px;
 }
 .no-padding {
