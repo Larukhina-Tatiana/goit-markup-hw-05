@@ -753,10 +753,14 @@ portfolio-button:focus {
 /* Модалка */
 .is-hidden{
   visibility: hidden;
-  opacity: 0;
+  /* opacity: 0; */
   cursor: pointer;
+  /* pointer-events: ; */
 }
 
+.is-hidden .modal {
+  scale: 0;
+}
 .backdrop {
   position: fixed;
   top: 0;
@@ -765,6 +769,11 @@ portfolio-button:focus {
   height: 100vh;
   background: rgba(0, 0, 0, 0.2);
   z-index: 1;
+
+  transition-property: opaciti, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 
 }
 
@@ -782,6 +791,10 @@ portfolio-button:focus {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
+  transition-property: scale ;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 /* Выравнивание кнопки относительно мод.окна */
@@ -790,8 +803,8 @@ portfolio-button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 8;
-  top: 8;
+  right: 8px;
+  top: 8px;
   width: 30px;
   height: 30px;
   background-color: var(--white);
@@ -800,5 +813,15 @@ portfolio-button:focus {
 }
 
 .close-icon {
-  fill:#000000;
+  fill: var(--logo-header);
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  }
+  .modal-close-btn:hover .close-icon,
+  .modal-close-btn:focus .close-icon {
+    fill: var(--accent-color);
+    cursor: pointer;
   }
