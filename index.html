@@ -56,7 +56,7 @@
     <!-- Секция 1  Герой "Шапка" по Фигме -->
     <section class="hero">
       <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-      <button class="hero-button" type="button">Замовити послугу</button>
+      <button class="hero-button" type="button" data-modal-open>Замовити послугу</button>
     </section>
     <!-- Секция 2 "Особливості" peculiarities -->
     <section class="peculiarities section no-padding-bottom">
@@ -415,6 +415,18 @@
       </div>
     </div>
   </footer>
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button class="modal-close-btn" type="button" data-modal-close>
+        <svg class="close-icon" width="16" height="16">
+          <use href="./images/icons/icons.svg#icon-close-black-18dp"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="./js/modal.js"></script>
+
 </body>
 
 </html>

@@ -749,3 +749,56 @@ portfolio-button:focus {
 .no-padding {
   padding: 0;
 }
+
+/* Модалка */
+.is-hidden{
+  visibility: hidden;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--hero);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+}
+
+/* Выравнивание кнопки относительно мод.окна */
+.modal-close-btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 8;
+  top: 8;
+  width: 30px;
+  height: 30px;
+  background-color: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+
+.close-icon {
+  fill:#000000;
+  }
