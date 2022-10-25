@@ -152,9 +152,6 @@ margin-right: 50px;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* {
-    fill: var(--priority-text-color)
-} */
 
 .contact-icon:hover .nav-contacks-icon,
 .contact-icon:focus .nav-contacks-icon {
@@ -170,8 +167,6 @@ margin-right: 50px;
 .position-relative {
   display: inline-block;
   position: relative;
-
-
 }
 
 .link-hover::after {
@@ -182,9 +177,8 @@ margin-right: 50px;
   height: 4px;
   background-color: var(--accent-color);
   border-radius: 2px;
-  bottom: 0;
+  bottom: -1px;
   /* opacity: 0; */
-
 }
 
 .active {
@@ -194,7 +188,6 @@ margin-right: 50px;
 /* .active.link-hover:hover::after,
 .link-hover:focus::after {
   opacity: 1;
-  
   } */
 
 .contact-icon {
@@ -339,6 +332,7 @@ margin-right: 50px;
     background-image: url(../images/icons/astronaut.svg) ;
 } */
 
+
 /* Заголовки h3 Секции "Особенности"*/
 .peculiarities-subtitle {
   margin-bottom: 10px;
@@ -384,7 +378,6 @@ margin-right: 50px;
 
   font-weight: 700;
   line-height: calc(16 / 14);
-  /* text-align: center; */
   text-transform: uppercase;
 
   color: var(--white);
@@ -398,7 +391,6 @@ margin-right: 50px;
 
 .team-card {
   width: 270px;
-  /* height: 368px; */
   background: var(--page-background);
   box-shadow: var(--team-box-shadow);
   border-radius: 0px 0px 4px 4px;
@@ -446,9 +438,10 @@ margin-right: 50px;
 }
 
 .team-link {
-  border: 1px solid var(--page-background);
+  background: var(--page-background);
 
-  transition-property: border;
+
+  transition-property: background;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -487,8 +480,9 @@ margin-right: 50px;
 
 /* Секция Постійні клієнти */
 
-/* li */
-.clients-card {
+/* a*/
+
+.card-accent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -497,15 +491,24 @@ margin-right: 50px;
   border: 1px solid var(--clients);
   border-radius: 4px;
 
-  transition-property: border;
+  transition-property: border, fill;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+
 }
 
-.clients-card:hover,
-.clients-card:focus {
+.card-accent:hover .card-accent-icon,
+.card-accent:focus .card-accent-icon {
+  fill: var(--accent-color);
+}
+
+.card-accent:hover,
+.card-accent:focus {
   border: 1px solid var(--accent-color);
 }
+
+
+
 
 /* Секция Наша команда svg без ховера */
 .contact-icon,
@@ -517,15 +520,12 @@ margin-right: 50px;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card-accent:hover,
-.card-accent:focus,
-.card-accent-icon:hover,
-.card-accent-icon:focus {
-  fill: var(--accent-color);
-}
-.clients-card:hover .card-accent-icon,
-.clients-card:focus .card-accent-icon {
-  fill: var(--accent-color);
+.svg-contact-icon {
+  fill: var(--priority-text-color);
+
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Футер */
@@ -566,22 +566,17 @@ margin-right: 50px;
   color: var(--hero);
 
   margin-bottom: 20px;
-  padding-top: 10px;
-}
-
-.svg-social-link {
-  fill: var(--logo-footer);
-
-  transition-property: fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-link:hover,
 .team-link:focus {
   fill: var(--logo-footer);
 }
+
+
+
 /* Страница Портфолио */
+
 /* Кнопки */
 .btn-flex {
   display: flex;
@@ -596,6 +591,7 @@ margin-right: 50px;
 
   color: var(--title-text-color);
   background: var(--team-background);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 
   /* font-family: inherit; */
   font-weight: 500;
@@ -615,8 +611,7 @@ margin-right: 50px;
 /* Активная кнопка */
 .portfolio-button.active,
 .portfolio-button:hover,
-portfolio-button:focus {
-  /* padding: 6px 25px; */
+.portfolio-button:focus {
   color: var(--logo-footer);
   background: var(--accent-color);
   box-shadow: var(--portfolio-box-shadow);
@@ -661,13 +656,6 @@ portfolio-button:focus {
 }
 
 
-/* .portfolio-button.active {
-
-    padding: 6px 25px;
-    color: var(--logo-footer);
-    background: var(--accent-color);
-    box-shadow: var(--portfolio-box-shadow);
-} */
 /* flex-container */
 .flex-container {
   flex-wrap: wrap;
@@ -711,8 +699,6 @@ portfolio-button:focus {
   transition-duration: 250ms;
   transition-property: border, box-shadow, background;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  
 }
 
 .project:hover,
@@ -740,8 +726,9 @@ portfolio-button:focus {
 .footer .container {
   display: flex;
   justify-content: left;
+  align-items: baseline;
   gap: 70px;
-}
+  }
 
 .footer-social-list {
   gap: 10px;
